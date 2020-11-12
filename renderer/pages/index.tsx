@@ -1,16 +1,11 @@
-import Link from 'next/link';
-import Layout from '../components/Layout';
+import { FC } from 'react';
+import { Template } from '~/components/Template';
 
-const IndexPage = () => {
+const IndexPage: FC = () => {
   return (
-    <Layout title="Home | Next.js + TypeScript + Electron Example">
+    <Template title="Home | Next.js + TypeScript + Electron Example">
       <h1>Hello Next.js 👋</h1>
-      <p>
-        <Link href="/about">
-          <a>About</a>
-        </Link>
-      </p>
-    </Layout>
+    </Template>
   );
 };
 
