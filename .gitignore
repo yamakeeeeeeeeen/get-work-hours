@@ -33,6 +33,11 @@ yarn-error.log*
 # vercel
 .vercel
 
+# electron
+dist
+renderer/.next
+renderer/out
+
 # transpiled
 main
 
