@@ -1,33 +1,40 @@
 {
-  "name": "katilo",
-  "version": "0.1.0",
-  "private": true,
+  "name": "with-electron-typescript",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "main/index.js",
+  "productName": "ElectronTypescriptNext",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "eslint": "eslint . --ext .tsx --ext .ts"
+    "build": "yarn build-renderer && yarn build-electron",
+    "build-electron": "tsc -p electron-src",
+    "build-renderer": "next build renderer && next export renderer",
+    "clean": "rimraf dist main renderer/out renderer/.next",
+    "dev": "yarn build-electron && electron .",
+    "dist": "yarn build && electron-builder",
+    "pack-app": "yarn build && electron-builder --dir",
+    "type-check": "tsc"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
-    "next": "10.0.1",
-    "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "electron-is-dev": "^1.1.0",
+    "electron-next": "^3.1.5",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
   },
   "devDependencies": {
-    "@types/node": "^14.14.7",
-    "@types/react": "^16.9.56",
-    "@typescript-eslint/eslint-plugin": "^4.7.0",
-    "@typescript-eslint/parser": "^4.7.0",
-    "eslint": "^7.13.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.1.2",
+    "@types/node": "^14.14.6",
+    "@types/react": "^16.9.9",
+    "@types/react-dom": "^16.9.9",
+    "electron": "^10.1.5",
+    "electron-builder": "^22.9.1",
+    "next": "latest",
+    "rimraf": "^3.0.0",
     "typescript": "^4.0.5"
+  },
+  "build": {
+    "asar": true,
+    "files": [
+      "main",
+      "renderer/out"
+    ]
   }
 }
