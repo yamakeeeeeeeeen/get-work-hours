@@ -12,7 +12,8 @@
     "dev": "yarn build-electron && electron .",
     "dist": "yarn build && electron-builder",
     "pack-app": "yarn build && electron-builder --dir",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "eslint": "eslint ./renderer --ext .tsx --ext .ts"
   },
   "dependencies": {
     "electron-is-dev": "^1.1.0",
