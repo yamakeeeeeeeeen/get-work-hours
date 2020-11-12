@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import Link from 'next/link';
+import Layout from '../components/Layout';
 
 const IndexPage = () => {
   return (
@@ -11,7 +11,7 @@ const IndexPage = () => {
         </Link>
       </p>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
