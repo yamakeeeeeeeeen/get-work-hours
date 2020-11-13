@@ -1,10 +1,8 @@
-import { FC, memo, useCallback, useMemo } from 'react';
-import { useFormContext } from 'react-hook-form';
+import { FC, memo } from 'react';
 import { Box, Button, Typography } from '@material-ui/core';
 import { TimePicker } from '~/components/TimePicker';
-import { Fields, Register, Remove } from '~/@types/ReactHookForm';
+import { Register } from '~/@types/ReactHookForm';
 import { ConfirmDialog } from '~/components/ConfirmDialog';
-import useBooleanState from '~/hooks/useBooleanState';
 
 type ComponentProps = {
   index: number;
@@ -20,7 +18,7 @@ type ComponentProps = {
   handleRemove: () => void;
 };
 
-const Component: FC<ComponentProps> = memo(
+export const Component: FC<ComponentProps> = memo(
   ({ index, value, isDisabled, isOpen, setOpen, setClose, register, handleRemove }) => {
     return (
       <>
@@ -43,39 +41,5 @@ const Component: FC<ComponentProps> = memo(
     );
   },
 );
+
 Component.displayName = 'Component';
-
-type Props = {
-  index: number;
-  value: {
-    start: string;
-    end: string;
-  };
-  fields: Fields;
-  remove: Remove;
-};
-
-export const TimePickerSet: FC<Props> = memo(({ fields, remove, ...props }) => {
-  const { register } = useFormContext();
-
-  const isDisabled = useMemo<boolean>(() => fields.length === 1, [fields.length]);
-  const [isOpen, setOpen, setClose] = useBooleanState(false);
-
-  const handleRemove = useCallback(() => {
-    remove(props.index);
-    setClose();
-  }, [props.index, remove, setClose]);
-
-  return (
-    <Component
-      {...props}
-      isDisabled={isDisabled}
-      isOpen={isOpen}
-      setOpen={setOpen}
-      setClose={setClose}
-      register={register}
-      handleRemove={handleRemove}
-    />
-  );
-});
-TimePickerSet.displayName = 'TimePickerSet';

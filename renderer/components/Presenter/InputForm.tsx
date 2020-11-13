@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 import { Button, createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
-import { TimePickerSet } from '~/components/TimePickerSet';
+import { TimePickerSet } from '~/components/Container/TimePickerSet';
 import { Fields, Remove } from '~/@types/ReactHookForm';
 
 const useStyles = makeStyles((theme: Theme) =>
