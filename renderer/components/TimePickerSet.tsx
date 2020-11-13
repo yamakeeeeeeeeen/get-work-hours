@@ -13,7 +13,7 @@ type ComponentProps = {
 
 const Component: FC<ComponentProps> = ({ index, isDisabled, register, handleRemove }) => {
   return (
-    <Box display="flex" alignItems="center">
+    <Box display="flex" alignItems="center" mb={3}>
       <Typography>着席{index + 1}回目</Typography>
       <TimePicker name={`workTimes[${index}].start`} label="着席" inputRef={register()} />
       <Typography>~</Typography>
