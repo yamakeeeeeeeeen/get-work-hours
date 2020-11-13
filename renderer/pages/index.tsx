@@ -20,7 +20,7 @@ const Component: FC<ComponentProps> = ({ fields, append, remove }) => {
   );
 };
 
-type Inputs = {
+export type Inputs = {
   workTimes: {
     start: string;
     end: string;
