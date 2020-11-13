@@ -26,9 +26,13 @@ const Component: FC<ComponentProps> = ({ handleSubmit, fields, remove, handleApp
   return (
     <>
       <Typography className={classes.infoText}>着席していた時間を入力してください</Typography>
-      {fields.map((item, index) => (
-        <TimePickerSet key={item.id} index={index} fields={fields} remove={remove} />
-      ))}
+      {fields.map((item, index) => {
+        const value = {
+          start: item.start,
+          end: item.end,
+        };
+        return <TimePickerSet key={item.id} index={index} value={value} fields={fields} remove={remove} />;
+      })}
       <Button variant="contained" color="primary" onClick={handleAppend}>
         追加
       </Button>
