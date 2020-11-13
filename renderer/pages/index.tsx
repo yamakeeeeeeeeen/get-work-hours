@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { FormProvider, useFieldArray, useForm } from 'react-hook-form';
 import { Typography } from '@material-ui/core';
 import { Template } from '~/components/Template';
-import { InputForm } from '~/components/InputForm';
+import { InputForm } from '~/components/Container/InputForm';
 import { Append, Fields, Remove } from '~/@types/ReactHookForm';
 
 type ComponentProps = {
