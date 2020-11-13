@@ -1,14 +1,14 @@
 import { FC, memo } from 'react';
 import { Box, Button, Dialog, Typography } from '@material-ui/core';
 
-type ComponentProps = {
+type Props = {
   isOpen: boolean;
   setClose: () => void;
   body: string;
   callback: () => void;
 };
 
-const Component: FC<ComponentProps> = memo(({ isOpen, setClose, body, callback }) => {
+export const ConfirmDialog: FC<Props> = memo(({ isOpen, setClose, body, callback }) => {
   return (
     <>
       <Dialog open={isOpen}>
@@ -25,16 +25,5 @@ const Component: FC<ComponentProps> = memo(({ isOpen, setClose, body, callback }
     </>
   );
 });
-Component.displayName = 'Component';
 
-type Props = {
-  isOpen: boolean;
-  setClose: () => void;
-  body: string;
-  callback: () => void;
-};
-
-export const ConfirmDialog: FC<Props> = memo((props) => {
-  return <Component {...props} />;
-});
 ConfirmDialog.displayName = 'ConfirmDialog';
