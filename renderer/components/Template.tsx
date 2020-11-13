@@ -16,3 +16,5 @@ export const Template: FC<Props> = memo(({ children, title = 'This is the defaul
     {children}
   </div>
 ));
+
+Template.displayName = 'Template';
