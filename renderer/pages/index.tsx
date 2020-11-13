@@ -1,13 +1,48 @@
 import { FC } from 'react';
+import { FormProvider, useFieldArray, useForm } from 'react-hook-form';
+import { Typography } from '@material-ui/core';
 import { Template } from '~/components/Template';
-import { TimePicker } from '~/components/TimePicker';
+import { InputForm } from '~/components/InputForm';
+import { Append, Fields, Remove } from '~/@types/ReactHookForm';
 
-const IndexPage: FC = () => {
+type ComponentProps = {
+  fields: Fields;
+  append: Append;
+  remove: Remove;
+};
+
+const Component: FC<ComponentProps> = ({ fields, append, remove }) => {
   return (
     <Template title="Home | Next.js + TypeScript + Electron Example">
-      <h1>稼働 / 休憩 Getter 👋</h1>
-      <TimePicker label="start" />
+      <Typography variant="h4">稼働 / 休憩 Getter 👋</Typography>
+      <InputForm fields={fields} append={append} remove={remove} />
     </Template>
+  );
+};
+
+type Inputs = {
+  workTimes: {
+    start: string;
+    end: string;
+  }[];
+};
+
+const IndexPage: FC = () => {
+  const methods = useForm<Inputs>({
+    defaultValues: {
+      workTimes: [{ start: '12:00', end: '12:00' }],
+    },
+  });
+  const { control } = methods;
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: 'workTimes',
+  });
+
+  return (
+    <FormProvider {...methods}>
+      <Component fields={fields} append={append} remove={remove} />
+    </FormProvider>
   );
 };
 
