@@ -1,5 +1,5 @@
-import { createStyles, makeStyles, TextField, Theme } from '@material-ui/core';
 import { FC } from 'react';
+import { createStyles, makeStyles, TextField, TextFieldProps, Theme } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -11,16 +11,12 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-type Props = {
-  label: string;
-};
-
-export const TimePicker: FC<Props> = ({ label }) => {
+export const TimePicker: FC<TextFieldProps> = (props) => {
   const classes = useStyles();
 
   return (
     <TextField
-      label={label}
+      {...props}
       type="time"
       defaultValue="12:00"
       variant="outlined"
