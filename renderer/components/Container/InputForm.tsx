@@ -5,6 +5,7 @@ import { Append, Fields, Remove } from '~/@types/ReactHookForm';
 import { Inputs } from '~/pages';
 import useBooleanState from '~/hooks/useBooleanState';
 import { getUptimeAndBreakTime } from '~/utils/getUptimeAndBreakTime';
+import { calcTime } from '~/utils/calcTime';
 
 type Props = {
   fields: Fields;
@@ -19,7 +20,7 @@ const INITIAL_TIME: Time = {
 };
 
 export const InputForm: FC<Props> = ({ fields, append, remove }) => {
-  const { handleSubmit } = useFormContext();
+  const { getValues, handleSubmit } = useFormContext();
   const [isOpen, setOpen, setClose] = useBooleanState(false);
   const [uptime, setUptime] = useState<Time>(INITIAL_TIME);
   const [breakTime, setBreakTime] = useState<Time>(INITIAL_TIME);
@@ -33,8 +34,13 @@ export const InputForm: FC<Props> = ({ fields, append, remove }) => {
   );
 
   const handleAppend = useCallback(() => {
+    const values = getValues();
+    const workTimes = values.workTimes;
+    const lastWorkTime = workTimes[workTimes.length - 1];
+    const nextTime = calcTime(lastWorkTime.start, lastWorkTime.end);
+    console.log('nextTime', nextTime);
     append({ start: '12:00', end: '12:00' });
-  }, [append]);
+  }, [append, getValues]);
   const handleConfirm = useCallback(
     (val: Inputs) => {
       const workTimes = val.workTimes;
