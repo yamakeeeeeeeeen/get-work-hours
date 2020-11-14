@@ -30,7 +30,7 @@ export type Inputs = {
 const IndexPage: FC = () => {
   const methods = useForm<Inputs>({
     defaultValues: {
-      workTimes: [{ start: '12:00', end: '12:00' }],
+      workTimes: [{ start: '09:00', end: '10:00' }],
     },
   });
   const { control } = methods;

@@ -18,7 +18,6 @@ export const TimePicker: FC<TextFieldProps> = (props) => {
     <TextField
       {...props}
       type="time"
-      defaultValue="12:00"
       variant="outlined"
       color="primary"
       className={classes.textField}
