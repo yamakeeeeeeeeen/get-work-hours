@@ -1,9 +1,10 @@
-import { FC, useCallback, useState } from 'react';
+import { FC, useCallback, useMemo, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Component } from '~/components/Presenter/InputForm';
 import { Append, Fields, Remove } from '~/@types/ReactHookForm';
 import { Inputs } from '~/pages';
 import useBooleanState from '~/hooks/useBooleanState';
+import { getUptimeAndBreakTime } from '~/utils/getUptimeAndBreakTime';
 
 type Props = {
   fields: Fields;
@@ -11,22 +12,36 @@ type Props = {
   remove: Remove;
 };
 
+type Time = { hour: number; minute: number };
+const INITIAL_TIME: Time = {
+  hour: 0,
+  minute: 0,
+};
+
 export const InputForm: FC<Props> = ({ fields, append, remove }) => {
   const { handleSubmit } = useFormContext();
   const [isOpen, setOpen, setClose] = useBooleanState(false);
-  const [workHours, setWorkHours] = useState<number>(0);
-  const [workMinutes, setWorkMinutes] = useState<number>(0);
+  const [uptime, setUptime] = useState<Time>(INITIAL_TIME);
+  const [breakTime, setBreakTime] = useState<Time>(INITIAL_TIME);
 
-  const result = `稼働時間は${workHours}時間${workMinutes}分です`;
+  const result = useMemo(
+    () => `
+    稼働時間は${uptime.hour}時間${uptime.minute}分です。
+    休憩時間は${breakTime.hour}時間${breakTime.minute}分です。
+  `,
+    [breakTime.hour, breakTime.minute, uptime.hour, uptime.minute],
+  );
 
   const handleAppend = useCallback(() => {
     append({ start: '12:00', end: '12:00' });
   }, [append]);
   const handleConfirm = useCallback(
     (val: Inputs) => {
-      setOpen();
       const workTimes = val.workTimes;
-      console.log('workTimes', workTimes);
+      const data = getUptimeAndBreakTime(workTimes);
+      setUptime(data.uptime);
+      setBreakTime(data.breakTime);
+      setOpen();
     },
     [setOpen],
   );
