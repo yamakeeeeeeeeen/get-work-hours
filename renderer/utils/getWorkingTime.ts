@@ -1,15 +1,32 @@
 import { Duration } from 'luxon';
 import { timeSplit } from '~/utils/timeSplit';
+import { FRACTIONS_OF_AN_HOUR } from '~/constants';
 import { convertToHourAndMinute } from '~/utils/convertToHourAndMinute';
 
-export const getWorkingTime = (times: { start: string; end: string }[]) => {
+type WorkingData = { start: string; end: string }[];
+type WorkingTime = {
+  uptime: {
+    hour: number;
+    minute: number;
+  };
+  breakTime: {
+    hour: number;
+    minute: number;
+  };
+};
+
+/**
+ * 稼働時間と休憩時間を返す
+ * @param times 稼働データ
+ */
+export const getWorkingTime = (times: WorkingData): WorkingTime => {
   const NO_BREAK = times.length === 1;
   // // 初めに着席した時間から最後に離席した時間を算出
   const total_time = getTotalTime(times);
   // 合計稼働時間を算出
   const total_uptime = getTotalUptime(times);
   // 合計休憩時間を算出
-  const total_breakTime = NO_BREAK ? 60 : total_time - total_uptime;
+  const total_breakTime = NO_BREAK ? FRACTIONS_OF_AN_HOUR : total_time - total_uptime;
 
   return {
     uptime: convertToHourAndMinute(total_uptime),
@@ -21,7 +38,7 @@ export const getWorkingTime = (times: { start: string; end: string }[]) => {
  * 最初に着席した時間から最後に離席した時間までの合計値を返す ※単位(分)
  * @param times 稼働データ
  */
-const getTotalTime = (times: { start: string; end: string }[]): number => {
+const getTotalTime = (times: WorkingData): number => {
   // 初めに着席した時間から最後に離席した時間を算出
   const first_obj = times[0].start;
   const last_obj = times[times.length - 1].end;
@@ -38,7 +55,7 @@ const getTotalTime = (times: { start: string; end: string }[]): number => {
  * 合計稼働時間を返す ※単位(分)
  * @param times 稼働データ
  */
-const getTotalUptime = (times: { start: string; end: string }[]): number => {
+const getTotalUptime = (times: WorkingData): number => {
   const NO_BREAK = times.length === 1;
   let total_uptime = 0; // 合計稼働時間
 
@@ -55,7 +72,7 @@ const getTotalUptime = (times: { start: string; end: string }[]): number => {
 
   // 休憩していない場合は60分休憩する
   if (NO_BREAK) {
-    total_uptime -= 60;
+    total_uptime -= FRACTIONS_OF_AN_HOUR;
   }
 
   return total_uptime;
