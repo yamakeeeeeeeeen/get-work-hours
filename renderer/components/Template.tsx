@@ -10,8 +10,6 @@ export const Template: FC<Props> = memo(({ children, title = 'This is the defaul
   <div>
     <Head>
       <title>{title}</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     {children}
   </div>
