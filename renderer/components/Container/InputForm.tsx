@@ -4,8 +4,7 @@ import { Component } from '~/components/Presenter/InputForm';
 import { Append, Fields, Remove } from '~/@types/ReactHookForm';
 import { Inputs } from '~/pages';
 import useBooleanState from '~/hooks/useBooleanState';
-import { getUptimeAndBreakTime } from '~/utils/getUptimeAndBreakTime';
-import { calcTime } from '~/utils/calcTime';
+import { getWorkingTime } from '~/utils/getWorkingTime';
 
 type Props = {
   fields: Fields;
@@ -34,17 +33,19 @@ export const InputForm: FC<Props> = ({ fields, append, remove }) => {
   );
 
   const handleAppend = useCallback(() => {
-    const values = getValues();
-    const workTimes = values.workTimes;
-    const lastWorkTime = workTimes[workTimes.length - 1];
-    const nextTime = calcTime(lastWorkTime.start, lastWorkTime.end);
-    console.log('nextTime', nextTime);
+    // const values = getValues();
+    // const workTimes = values.workTimes;
+    // const lastWorkTime = workTimes[workTimes.length - 1];
+    // const nextTime = calcTime(lastWorkTime.start, lastWorkTime.end);
+    // console.log('nextTime', nextTime);
     append({ start: '12:00', end: '12:00' });
-  }, [append, getValues]);
+  }, [append]);
+
   const handleConfirm = useCallback(
     (val: Inputs) => {
       const workTimes = val.workTimes;
-      const data = getUptimeAndBreakTime(workTimes);
+      const data = getWorkingTime(workTimes);
+
       setUptime(data.uptime);
       setBreakTime(data.breakTime);
       setOpen();
