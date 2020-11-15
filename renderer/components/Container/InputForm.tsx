@@ -1,15 +1,11 @@
 import { FC, useCallback, useMemo, useState } from 'react';
-import { useFormContext, UseFieldArrayMethods } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import { Component } from '~/components/Presenter/InputForm';
-import { Inputs } from '~/pages';
+import { ComponentProps, Inputs } from '~/pages';
 import useBooleanState from '~/hooks/useBooleanState';
 import { getWorkingTime } from '~/utils/getWorkingTime';
 
-type Props = {
-  fields: UseFieldArrayMethods['fields'];
-  append: UseFieldArrayMethods['append'];
-  remove: UseFieldArrayMethods['remove'];
-};
+export type Props = ComponentProps;
 
 type Time = { hour: number; minute: number };
 const INITIAL_TIME: Time = {
@@ -17,7 +13,7 @@ const INITIAL_TIME: Time = {
   minute: 0,
 };
 
-export const InputForm: FC<Props> = ({ fields, append, remove }) => {
+export const InputForm: FC<Props> = ({ append, ...props }) => {
   const { handleSubmit } = useFormContext();
   const [isOpen, setOpen, setClose] = useBooleanState(false);
   const [uptime, setUptime] = useState<Time>(INITIAL_TIME);
@@ -49,8 +45,7 @@ export const InputForm: FC<Props> = ({ fields, append, remove }) => {
 
   return (
     <Component
-      fields={fields}
-      remove={remove}
+      {...props}
       result={result}
       isOpen={isOpen}
       setClose={setClose}

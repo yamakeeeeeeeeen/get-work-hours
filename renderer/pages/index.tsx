@@ -4,17 +4,17 @@ import { Typography } from '@material-ui/core';
 import { Template } from '~/components/Template';
 import { InputForm } from '~/components/Container/InputForm';
 
-type ComponentProps = {
+export type ComponentProps = {
   fields: UseFieldArrayMethods['fields'];
   append: UseFieldArrayMethods['append'];
   remove: UseFieldArrayMethods['remove'];
 };
 
-const Component: FC<ComponentProps> = ({ fields, append, remove }) => {
+const Component: FC<ComponentProps> = ({ ...props }) => {
   return (
     <Template title="Get Work Time">
       <Typography variant="h4">稼働 / 休憩 Getter 👋</Typography>
-      <InputForm fields={fields} append={append} remove={remove} />
+      <InputForm {...props} />
     </Template>
   );
 };

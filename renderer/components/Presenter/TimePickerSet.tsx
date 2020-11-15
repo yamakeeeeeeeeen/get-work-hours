@@ -1,16 +1,12 @@
 import { FC, memo } from 'react';
 import { UseFormMethods } from 'react-hook-form';
 import { Box, Button, Typography } from '@material-ui/core';
+import { Props } from '~/components/Container/TimePickerSet';
 import { TimePicker } from '~/components/TimePicker';
 import { ConfirmDialog } from '~/components/ConfirmDialog';
 import { getValidation } from '~/utils/getValidation';
 
-type ComponentProps = {
-  index: number;
-  value: {
-    start: string;
-    end: string;
-  };
+type ComponentProps = Omit<Props, 'fields' | 'remove'> & {
   isDisabled: boolean;
   isOpen: boolean;
   setOpen: () => void;
@@ -20,6 +16,7 @@ type ComponentProps = {
   register: UseFormMethods['register'];
   handleRemove: () => void;
 };
+
 export const Component: FC<ComponentProps> = memo(
   ({ index, value, isDisabled, isOpen, setOpen, setClose, errors, getValues, register, handleRemove }) => {
     const { biggerThanThePrevious, formatHHMM } = getValidation();
