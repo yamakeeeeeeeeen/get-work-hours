@@ -1,6 +1,6 @@
 import { FC, memo, useCallback, useMemo, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { Component } from '~/components/Presenter/InputForm';
+import { Component } from '~/components/InputForm';
 import { ComponentProps, Inputs } from '~/pages';
 import useBooleanState from '~/hooks/useBooleanState';
 import { getWorkingTime } from '~/utils/getWorkingTime';

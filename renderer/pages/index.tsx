@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { FormProvider, useFieldArray, useForm, UseFieldArrayMethods } from 'react-hook-form';
 import { Typography } from '@material-ui/core';
 import { Template } from '~/components/Template';
-import { InputForm } from '~/components/Container/InputForm';
+import { InputForm } from '~/containers/InputForm';
 
 export type ComponentProps = {
   fields: UseFieldArrayMethods['fields'];

@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { Box, Button, createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
-import { Props } from '~/components/Container/InputForm';
-import { TimePickerSet } from '~/components/Container/TimePickerSet';
+import { Props } from '~/containers/InputForm';
+import { TimePickerSet } from '~/containers/TimePickerSet';
 import { ResultDialog } from '~/components/ResultDialog';
 import { Inputs } from '~/pages';
 import { UseFormMethods } from 'react-hook-form';

@@ -1,7 +1,7 @@
 import { FC, memo, useCallback, useMemo } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { ComponentProps } from '~/components/Presenter/InputForm';
-import { Component } from '~/components/Presenter/TimePickerSet';
+import { ComponentProps } from '~/components/InputForm';
+import { Component } from '~/components/TimePickerSet';
 import useBooleanState from '~/hooks/useBooleanState';
 
 export type Props = Pick<ComponentProps, 'fields' | 'remove'> & {
