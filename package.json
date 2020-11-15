@@ -1,9 +1,9 @@
 {
-  "name": "with-electron-typescript",
+  "name": "get-work-time",
   "version": "1.0.0",
   "license": "MIT",
   "main": "main/index.js",
-  "productName": "ElectronTypescriptNext",
+  "productName": "GetWorkTime",
   "scripts": {
     "build": "yarn build-renderer && yarn build-electron",
     "build-electron": "tsc -p electron-src",

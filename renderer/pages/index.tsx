@@ -13,7 +13,7 @@ type ComponentProps = {
 
 const Component: FC<ComponentProps> = ({ fields, append, remove }) => {
   return (
-    <Template title="Home | Next.js + TypeScript + Electron Example">
+    <Template title="Get Work Time">
       <Typography variant="h4">稼働 / 休憩 Getter 👋</Typography>
       <InputForm fields={fields} append={append} remove={remove} />
     </Template>
