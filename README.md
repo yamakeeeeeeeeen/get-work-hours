@@ -1,44 +1,32 @@
-# Electron with Typescript application example
+# Get Work Time
 
-This example show how you can use Next.js inside an Electron application to avoid a lot of configuration, use Next.js router as view and use server-render to speed up the initial render of the application. Both Next.js and Electron layers are written in TypeScript and compiled to JavaScript during the build process.
+## Structure
 
-| Part       | Source code (Typescript) | Builds (JavaScript) |
-| ---------- | ------------------------ | ------------------- |
-| Next.js    | `/renderer`              | `/renderer`         |
-| Electron   | `/electron-src`          | `/main`             |
-| Production |                          | `/dist`             |
+- NEXT.js (10.0.1)
+- electron-next (3.1.5)
+- typescript (4.0.5)
+- material-ui (4.11.0)
+- react-hook-form (6.11.2)
 
-For development it's going to run a HTTP server and let Next.js handle routing. In production it use `next export` to pre-generate HTML static files and use them in your app instead of running an HTTP server.
+## Setup
 
-**You can find a detailed documentation about how to build Electron apps with Next.js [here](https://leo.im/2017/electron-next)!**
+1. `yarn` or `npm install`
+2. `yarn build` or `npm run build`
+3. `yarn dist` or `npm run dist`
 
-## How to use
+## Launch the app
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+### Win
 
-```bash
-npx create-next-app --example with-electron-typescript with-electron-typescript-app
-# or
-yarn create next-app --example with-electron-typescript with-electron-typescript-app
-```
+`~/dist/win-unpacked/GetWorkTime.exe`
 
-Available commands:
+### Mac
 
-```bash
-"build-renderer": build and transpile Next.js layer
-"build-electron": transpile electron layer
-"build": build both layers
-"dev": start dev version
-"dist": create production elctron build
-"type-check": check TypeScript in project
-```
+`~/dist/mac/GetWorkTime.exe`
 
-## Notes
+## Usage
 
-You can create the production app using `npm run dist`.
+Enter the hours you've worked.  
+You can get a quick breakdown of these complex work hours.
 
-_note regarding types:_
-
-- Electron provides its own type definitions, so you don't need @types/electron installed!
-  source: https://www.npmjs.com/package/@types/electron
-- There were no types available for `electron-next` at the time of creating this example, so until they are available there is a file `electron-next.d.ts` in `electron-src` directory.
+![work-info](https://user-images.githubusercontent.com/53547520/99178691-11415900-2759-11eb-97d7-71e8e408b55e.png)
