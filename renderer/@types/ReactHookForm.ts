@@ -1,5 +1,26 @@
-import { ArrayField, FieldElement, FieldName, Ref, ValidationRules } from 'react-hook-form';
+import {
+  ArrayField,
+  FieldElement,
+  FieldErrors,
+  FieldName,
+  Ref,
+  UnpackNestedValue,
+  ValidationRules,
+} from 'react-hook-form';
 
+export type Errors = FieldErrors<Record<string, any>>;
+export type GetValues = {
+  (): UnpackNestedValue<Record<string, any>>;
+  <TFieldName extends string, TFieldValue extends unknown>(name: TFieldName): TFieldName extends keyof Record<
+    string,
+    any
+  >
+    ? UnpackNestedValue<Record<string, any>>[TFieldName]
+    : TFieldValue;
+  <TFieldName extends keyof Record<string, any>>(names: TFieldName[]): UnpackNestedValue<
+    Pick<Record<string, any>, TFieldName>
+  >;
+};
 export type Register = {
   <TFieldElement extends FieldElement<Record<string, any>>>(rules?: ValidationRules): (
     ref: (TFieldElement & Ref) | null,
