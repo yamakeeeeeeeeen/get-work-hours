@@ -32,6 +32,7 @@ const IndexPage: FC = () => {
     defaultValues: {
       workTimes: [{ start: '09:00', end: '10:00' }],
     },
+    mode: 'all',
   });
   const { control } = methods;
   const { fields, append, remove } = useFieldArray({
