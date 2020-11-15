@@ -12,7 +12,7 @@
     "dev": "yarn build-electron && electron .",
     "dist": "yarn build && electron-builder",
     "pack-app": "yarn build && electron-builder --dir",
-    "type-check": "tsc",
+    "type-check": "tsc --project renderer/tsconfig.json",
     "eslint": "eslint ./renderer --ext .tsx --ext .ts"
   },
   "dependencies": {
