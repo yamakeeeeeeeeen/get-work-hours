@@ -1,4 +1,4 @@
-import { FC, useCallback, useMemo, useState } from 'react';
+import { FC, memo, useCallback, useMemo, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Component } from '~/components/Presenter/InputForm';
 import { ComponentProps, Inputs } from '~/pages';
@@ -13,8 +13,8 @@ const INITIAL_TIME: Time = {
   minute: 0,
 };
 
-export const InputForm: FC<Props> = ({ append, ...props }) => {
-  const { handleSubmit } = useFormContext();
+export const InputForm: FC<Props> = memo(({ append, ...props }) => {
+  const { handleSubmit, reset } = useFormContext();
   const [isOpen, setOpen, setClose] = useBooleanState(false);
   const [uptime, setUptime] = useState<Time>(INITIAL_TIME);
   const [breakTime, setBreakTime] = useState<Time>(INITIAL_TIME);
@@ -43,6 +43,17 @@ export const InputForm: FC<Props> = ({ append, ...props }) => {
     [setOpen],
   );
 
+  const handleReset = useCallback(() => {
+    reset({
+      workTimes: [
+        {
+          start: '09:00',
+          end: '10:00',
+        },
+      ],
+    });
+  }, [reset]);
+
   return (
     <Component
       {...props}
@@ -51,7 +62,10 @@ export const InputForm: FC<Props> = ({ append, ...props }) => {
       setClose={setClose}
       handleAppend={handleAppend}
       handleConfirm={handleConfirm}
+      handleReset={handleReset}
       handleSubmit={handleSubmit}
     />
   );
-};
+});
+
+InputForm.displayName = 'InputForm';

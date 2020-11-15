@@ -3,6 +3,8 @@ import { Box, Button, createStyles, makeStyles, Theme, Typography } from '@mater
 import { Props } from '~/components/Container/InputForm';
 import { TimePickerSet } from '~/components/Container/TimePickerSet';
 import { ResultDialog } from '~/components/ResultDialog';
+import { Inputs } from '~/pages';
+import { UseFormMethods } from 'react-hook-form';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -17,12 +19,13 @@ export type ComponentProps = Omit<Props, 'append'> & {
   isOpen: boolean;
   setClose: () => void;
   handleAppend: () => void;
-  handleConfirm: any;
-  handleSubmit: any;
+  handleConfirm: (val: Inputs) => void;
+  handleReset: () => void;
+  handleSubmit: UseFormMethods['handleSubmit'];
 };
 
 export const Component: FC<ComponentProps> = memo(
-  ({ handleSubmit, result, isOpen, setClose, handleAppend, handleConfirm, ...props }) => {
+  ({ handleSubmit, result, isOpen, setClose, handleAppend, handleConfirm, handleReset, ...props }) => {
     const classes = useStyles();
 
     return (
@@ -41,6 +44,9 @@ export const Component: FC<ComponentProps> = memo(
           </Button>
           <Button variant="contained" color="primary" onClick={handleSubmit(handleConfirm)}>
             確認
+          </Button>
+          <Button variant="contained" color="secondary" onClick={handleReset}>
+            リセット
           </Button>
         </Box>
         <ResultDialog isOpen={isOpen} setClose={setClose} result={result} />
