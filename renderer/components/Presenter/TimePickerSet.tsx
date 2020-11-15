@@ -1,8 +1,9 @@
 import { FC, memo } from 'react';
 import { Box, Button, Typography } from '@material-ui/core';
 import { TimePicker } from '~/components/TimePicker';
-import { Register } from '~/@types/ReactHookForm';
+import { Errors, GetValues, Register } from '~/@types/ReactHookForm';
 import { ConfirmDialog } from '~/components/ConfirmDialog';
+import { getValidation } from '~/utils/getValidation';
 
 type ComponentProps = {
   index: number;
@@ -14,12 +15,15 @@ type ComponentProps = {
   isOpen: boolean;
   setOpen: () => void;
   setClose: () => void;
+  errors: Errors;
+  getValues: GetValues;
   register: Register;
   handleRemove: () => void;
 };
-
 export const Component: FC<ComponentProps> = memo(
-  ({ index, value, isDisabled, isOpen, setOpen, setClose, register, handleRemove }) => {
+  ({ index, value, isDisabled, isOpen, setOpen, setClose, errors, getValues, register, handleRemove }) => {
+    const { biggerThanThePrevious, formatHHMM } = getValidation();
+
     return (
       <>
         <Box display="flex" alignItems="center" mb={3}>
@@ -28,10 +32,29 @@ export const Component: FC<ComponentProps> = memo(
             name={`workTimes[${index}].start`}
             label="着席"
             defaultValue={value.start}
-            inputRef={register()}
+            inputRef={register({
+              validate: {
+                ...formatHHMM(),
+                ...biggerThanThePrevious('start', index, getValues),
+              },
+            })}
+            error={!!errors?.workTimes?.[index]?.start}
+            helperText={errors?.workTimes?.[index]?.start && errors?.workTimes?.[index]?.start?.message}
           />
           <Typography>~</Typography>
-          <TimePicker name={`workTimes[${index}].end`} label="離席" defaultValue={value.end} inputRef={register()} />
+          <TimePicker
+            name={`workTimes[${index}].end`}
+            label="離席"
+            defaultValue={value.end}
+            inputRef={register({
+              validate: {
+                ...formatHHMM(),
+                ...biggerThanThePrevious('end', index, getValues),
+              },
+            })}
+            error={!!errors?.workTimes?.[index]?.end}
+            helperText={errors?.workTimes?.[index]?.end && errors?.workTimes?.[index]?.end?.message}
+          />
           <Button variant="contained" color="secondary" disabled={isDisabled} onClick={setOpen}>
             削除
           </Button>

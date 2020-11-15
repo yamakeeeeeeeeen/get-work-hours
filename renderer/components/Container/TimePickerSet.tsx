@@ -15,7 +15,7 @@ type Props = {
 };
 
 export const TimePickerSet: FC<Props> = memo(({ fields, remove, ...props }) => {
-  const { register } = useFormContext();
+  const { errors, getValues, register } = useFormContext();
 
   const isDisabled = useMemo<boolean>(() => fields.length === 1, [fields.length]);
   const [isOpen, setOpen, setClose] = useBooleanState(false);
@@ -32,6 +32,8 @@ export const TimePickerSet: FC<Props> = memo(({ fields, remove, ...props }) => {
       isOpen={isOpen}
       setOpen={setOpen}
       setClose={setClose}
+      errors={errors}
+      getValues={getValues}
       register={register}
       handleRemove={handleRemove}
     />
