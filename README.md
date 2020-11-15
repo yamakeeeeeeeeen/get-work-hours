@@ -22,7 +22,7 @@
 
 ### Mac
 
-`~/dist/mac/GetWorkTime.exe`
+`~/dist/mac/GetWorkTime.app`
 
 ## Usage
 
