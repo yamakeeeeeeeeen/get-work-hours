@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { createStyles, makeStyles, TextField, TextFieldProps, Theme } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export const TimePicker: FC<TextFieldProps> = (props) => {
+export const TimePicker: FC<TextFieldProps> = memo((props) => {
   const classes = useStyles();
 
   return (
@@ -26,4 +26,6 @@ export const TimePicker: FC<TextFieldProps> = (props) => {
       }}
     />
   );
-};
+});
+
+TimePicker.displayName = 'TimePicker';
