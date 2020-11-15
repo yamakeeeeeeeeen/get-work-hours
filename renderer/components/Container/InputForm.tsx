@@ -1,15 +1,14 @@
 import { FC, useCallback, useMemo, useState } from 'react';
-import { useFormContext } from 'react-hook-form';
+import { useFormContext, UseFieldArrayMethods } from 'react-hook-form';
 import { Component } from '~/components/Presenter/InputForm';
-import { Append, Fields, Remove } from '~/@types/ReactHookForm';
 import { Inputs } from '~/pages';
 import useBooleanState from '~/hooks/useBooleanState';
 import { getWorkingTime } from '~/utils/getWorkingTime';
 
 type Props = {
-  fields: Fields;
-  append: Append;
-  remove: Remove;
+  fields: UseFieldArrayMethods['fields'];
+  append: UseFieldArrayMethods['append'];
+  remove: UseFieldArrayMethods['remove'];
 };
 
 type Time = { hour: number; minute: number };

@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
+import { UseFormMethods } from 'react-hook-form';
 import { Box, Button, Typography } from '@material-ui/core';
 import { TimePicker } from '~/components/TimePicker';
-import { Errors, GetValues, Register } from '~/@types/ReactHookForm';
 import { ConfirmDialog } from '~/components/ConfirmDialog';
 import { getValidation } from '~/utils/getValidation';
 
@@ -15,9 +15,9 @@ type ComponentProps = {
   isOpen: boolean;
   setOpen: () => void;
   setClose: () => void;
-  errors: Errors;
-  getValues: GetValues;
-  register: Register;
+  errors: UseFormMethods['errors'];
+  getValues: UseFormMethods['getValues'];
+  register: UseFormMethods['register'];
   handleRemove: () => void;
 };
 export const Component: FC<ComponentProps> = memo(

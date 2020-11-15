@@ -1,6 +1,5 @@
 import { FC, memo, useCallback, useMemo } from 'react';
-import { useFormContext } from 'react-hook-form';
-import { Fields, Remove } from '~/@types/ReactHookForm';
+import { useFormContext, UseFieldArrayMethods } from 'react-hook-form';
 import { Component } from '~/components/Presenter/TimePickerSet';
 import useBooleanState from '~/hooks/useBooleanState';
 
@@ -10,8 +9,8 @@ type Props = {
     start: string;
     end: string;
   };
-  fields: Fields;
-  remove: Remove;
+  fields: UseFieldArrayMethods['fields'];
+  remove: UseFieldArrayMethods['remove'];
 };
 
 export const TimePickerSet: FC<Props> = memo(({ fields, remove, ...props }) => {

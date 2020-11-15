@@ -1,14 +1,16 @@
+import { UseFormMethods } from 'react-hook-form';
 import { timeStringToMs } from '~/utils/timeStringToMs';
-import { GetValues } from '~/@types/ReactHookForm';
 import { isFormatHHMM } from '~/utils/isFormatHHMM';
 
+type FormatHHMM = () => { formatHHMM: (value: string) => boolean | string };
+type BiggerThanThePrevious = (
+  pos: 'start' | 'end',
+  index: number,
+  getValues: UseFormMethods['getValues'],
+) => { biggerThanThePrevious: (value: string) => undefined | boolean | string };
 type GetValidation = () => {
-  formatHHMM: () => { formatHHMM: (value: string) => boolean | string };
-  biggerThanThePrevious: (
-    pos: 'start' | 'end',
-    index: number,
-    getValues: GetValues,
-  ) => { biggerThanThePrevious: (value: string) => undefined | boolean | string };
+  formatHHMM: FormatHHMM;
+  biggerThanThePrevious: BiggerThanThePrevious;
 };
 
 export const getValidation: GetValidation = () => {
@@ -16,7 +18,7 @@ export const getValidation: GetValidation = () => {
     formatHHMM: () => ({
       formatHHMM: (value: string) => isFormatHHMM(value) || '時刻形式(HH:MM)で入力してください',
     }),
-    biggerThanThePrevious: (pos: 'start' | 'end', index: number, getValues: GetValues) => ({
+    biggerThanThePrevious: (pos: 'start' | 'end', index: number, getValues: UseFormMethods['getValues']) => ({
       biggerThanThePrevious: (value: string) => {
         // 業務開始時の着席はバリデーションかけない
         if (pos === 'start' && index === 0) return;

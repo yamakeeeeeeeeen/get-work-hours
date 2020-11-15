@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
+import { UseFieldArrayMethods } from 'react-hook-form';
 import { Box, Button, createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
 import { TimePickerSet } from '~/components/Container/TimePickerSet';
-import { Fields, Remove } from '~/@types/ReactHookForm';
 import { ResultDialog } from '~/components/ResultDialog';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type ComponentProps = {
-  fields: Fields;
-  remove: Remove;
+  fields: UseFieldArrayMethods['fields'];
+  remove: UseFieldArrayMethods['remove'];
   result: string;
   isOpen: boolean;
   setClose: () => void;

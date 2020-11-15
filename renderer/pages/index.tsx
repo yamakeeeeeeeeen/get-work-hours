@@ -1,14 +1,13 @@
 import { FC } from 'react';
-import { FormProvider, useFieldArray, useForm } from 'react-hook-form';
+import { FormProvider, useFieldArray, useForm, UseFieldArrayMethods } from 'react-hook-form';
 import { Typography } from '@material-ui/core';
 import { Template } from '~/components/Template';
 import { InputForm } from '~/components/Container/InputForm';
-import { Append, Fields, Remove } from '~/@types/ReactHookForm';
 
 type ComponentProps = {
-  fields: Fields;
-  append: Append;
-  remove: Remove;
+  fields: UseFieldArrayMethods['fields'];
+  append: UseFieldArrayMethods['append'];
+  remove: UseFieldArrayMethods['remove'];
 };
 
 const Component: FC<ComponentProps> = ({ fields, append, remove }) => {
