@@ -20,13 +20,20 @@ type WorkingTime = {
  * @param times 稼働データ
  */
 export const getWorkingTime = (times: WorkingData): WorkingTime => {
-  const NO_BREAK = times.length === 1;
   // // 初めに着席した時間から最後に離席した時間を算出
   const total_time = getTotalTime(times);
   // 合計稼働時間を算出
-  const total_uptime = getTotalUptime(times);
+  let total_uptime = getTotalUptime(times);
   // 合計休憩時間を算出
-  const total_breakTime = NO_BREAK && total_uptime > 540 ? FRACTIONS_OF_AN_HOUR : total_time - total_uptime;
+  let total_breakTime =
+    total_time - total_uptime < 60 && total_uptime > 540 ? FRACTIONS_OF_AN_HOUR : total_time - total_uptime;
+
+  // 5時間以上働いて60分休憩をとっていない場合は60分休憩をとる
+  if (total_time >= 540 && total_breakTime < 60) {
+    const diff = 60 - total_breakTime;
+    total_breakTime += diff;
+    total_uptime -= diff;
+  }
 
   return {
     uptime: convertToHourAndMinute(total_uptime),
@@ -70,7 +77,6 @@ const getTotalUptime = (times: WorkingData): number => {
     total_uptime += uptime;
   });
 
-  console.log('total_uptime', total_uptime);
   // 5時間以上稼働して休憩していない場合は60分休憩する
   if (NO_BREAK && total_uptime > 540) {
     total_uptime -= FRACTIONS_OF_AN_HOUR;
