@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { Box, Button, Dialog, Typography } from '@material-ui/core';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, Typography } from '@material-ui/core';
 
 type Props = {
   isOpen: boolean;
@@ -10,19 +10,21 @@ type Props = {
 
 export const ConfirmDialog: FC<Props> = memo(({ isOpen, setClose, body, callback }) => {
   return (
-    <>
-      <Dialog open={isOpen}>
-        <Typography variant="h4">{body}</Typography>
-        <Box display="flex">
-          <Button variant="contained" color="primary" onClick={callback}>
-            Yes
-          </Button>
-          <Button variant="contained" color="secondary" onClick={setClose}>
-            No
-          </Button>
-        </Box>
-      </Dialog>
-    </>
+    <Dialog open={isOpen} onClose={setClose}>
+      <DialogContent>
+        <DialogContentText>
+          <Typography variant="h4">{body}</Typography>
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button variant="contained" color="secondary" onClick={setClose}>
+          No
+        </Button>
+        <Button variant="contained" color="primary" onClick={callback}>
+          Yes
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 });
 

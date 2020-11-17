@@ -1,5 +1,13 @@
 import { FC, memo } from 'react';
-import { Box, Button, Dialog, Typography } from '@material-ui/core';
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Typography,
+} from '@material-ui/core';
 
 type Props = {
   isOpen: boolean;
@@ -9,17 +17,22 @@ type Props = {
 
 export const ResultDialog: FC<Props> = memo(({ isOpen, setClose, result }) => {
   return (
-    <>
-      <Dialog open={isOpen}>
-        <Typography variant="h4">{result.uptime}</Typography>
-        <Typography variant="h4">{result.breakTime}</Typography>
-        <Box display="flex">
-          <Button variant="contained" color="secondary" onClick={setClose}>
-            CLOSE
-          </Button>
-        </Box>
-      </Dialog>
-    </>
+    <Dialog open={isOpen} onClose={setClose}>
+      <DialogTitle>
+        <Typography variant="h3">Result</Typography>
+      </DialogTitle>
+      <DialogContent>
+        <DialogContentText>
+          <Typography variant="h4">{result.uptime}</Typography>
+          <Typography variant="h4">{result.breakTime}</Typography>
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button variant="contained" color="secondary" onClick={setClose}>
+          CLOSE
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 });
 
