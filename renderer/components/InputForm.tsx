@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export type ComponentProps = Omit<Props, 'append'> & {
-  result: string;
+  result: { breakTime: string; uptime: string };
   isDisabled: boolean;
   isOpen: boolean;
   setClose: () => void;
@@ -32,7 +32,7 @@ export const Component: FC<ComponentProps> = memo(
     return (
       <>
         <Box>
-          <Typography className={classes.infoText}>着席していた時間を入力してください</Typography>
+          <Typography className={classes.infoText}>Please enter the hours you worked👨‍💻</Typography>
           {props.fields.map((item, index) => {
             const value = {
               start: item.start,
@@ -41,10 +41,10 @@ export const Component: FC<ComponentProps> = memo(
             return <TimePickerSet key={item.id} index={index} value={value} {...props} />;
           })}
           <Button variant="contained" color="primary" onClick={handleAppend}>
-            追加
+            APPEND
           </Button>
           <Button variant="contained" color="primary" onClick={handleSubmit(handleConfirm)}>
-            確認
+            CONFIRM
           </Button>
           <Button variant="contained" color="secondary" disabled={!isDisabled} onClick={handleReset}>
             RESET

@@ -21,10 +21,10 @@ export const InputForm: FC<Props> = memo(({ append, ...props }) => {
   const [breakTime, setBreakTime] = useState<Time>(INITIAL_TIME);
 
   const result = useMemo(
-    () => `
-    稼働時間は${uptime.hour}時間${uptime.minute}分です。
-    休憩時間は${breakTime.hour}時間${breakTime.minute}分です。
-  `,
+    () => ({
+      uptime: `Uptime: ${uptime.hour} hour ${uptime.minute} minute 👨‍💻`,
+      breakTime: `Break Time: ${breakTime.hour} hour ${breakTime.minute} minute ☕`,
+    }),
     [breakTime.hour, breakTime.minute, uptime.hour, uptime.minute],
   );
 

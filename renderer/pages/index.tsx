@@ -13,7 +13,7 @@ export type ComponentProps = {
 const Component: FC<ComponentProps> = ({ ...props }) => {
   return (
     <Template title="Get Work Time">
-      <Typography variant="h4">稼働 / 休憩 Getter 👋</Typography>
+      <Typography variant="h4">Get Uptime and Break Time🔥</Typography>
       <InputForm {...props} />
     </Template>
   );

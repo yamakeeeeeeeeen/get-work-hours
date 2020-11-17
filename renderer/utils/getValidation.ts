@@ -16,7 +16,7 @@ type GetValidation = () => {
 export const getValidation: GetValidation = () => {
   return {
     formatHHMM: () => ({
-      formatHHMM: (value: string) => isFormatHHMM(value) || '時刻形式(HH:MM)で入力してください',
+      formatHHMM: (value: string) => isFormatHHMM(value) || 'Please enter the time format (HH:MM)',
     }),
     biggerThanThePrevious: (pos: 'start' | 'end', index: number, getValues: UseFormMethods['getValues']) => ({
       biggerThanThePrevious: (value: string) => {
@@ -29,7 +29,7 @@ export const getValidation: GetValidation = () => {
         const previous =
           pos === 'start' ? timeStringToMs(workTimes[index - 1].end) : timeStringToMs(workTimes[index].start);
         const current = timeStringToMs(value);
-        return current > previous || '前の時間よりも遅い時間を入力してください';
+        return current > previous || 'Please enter a time later than the previous time';
       },
     }),
   };

@@ -14,11 +14,11 @@ export const ConfirmDialog: FC<Props> = memo(({ isOpen, setClose, body, callback
       <Dialog open={isOpen}>
         <Typography variant="h4">{body}</Typography>
         <Box display="flex">
-          <Button variant="contained" color="secondary" onClick={setClose}>
-            いいえ
-          </Button>
           <Button variant="contained" color="primary" onClick={callback}>
-            はい
+            Yes
+          </Button>
+          <Button variant="contained" color="secondary" onClick={setClose}>
+            No
           </Button>
         </Box>
       </Dialog>

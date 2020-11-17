@@ -5,6 +5,7 @@ import { Props } from '~/containers/TimePickerSet';
 import { TimePicker } from '~/components/TimePicker';
 import { ConfirmDialog } from '~/components/ConfirmDialog';
 import { getValidation } from '~/utils/getValidation';
+import { ORDINAL_NUMBERS } from '~/constants';
 
 type ComponentProps = Omit<Props, 'fields' | 'remove'> & {
   isDisabled: boolean;
@@ -24,10 +25,10 @@ export const Component: FC<ComponentProps> = memo(
     return (
       <>
         <Box display="flex" alignItems="center" mb={3}>
-          <Typography>着席{index + 1}回目</Typography>
+          <Typography>{ORDINAL_NUMBERS[index + 1]}</Typography>
           <TimePicker
             name={`workTimes[${index}].start`}
-            label="着席"
+            label="start"
             defaultValue={value.start}
             inputRef={register({
               validate: {
@@ -41,7 +42,7 @@ export const Component: FC<ComponentProps> = memo(
           <Typography>~</Typography>
           <TimePicker
             name={`workTimes[${index}].end`}
-            label="離席"
+            label="end"
             defaultValue={value.end}
             inputRef={register({
               validate: {
@@ -53,10 +54,10 @@ export const Component: FC<ComponentProps> = memo(
             helperText={errors?.workTimes?.[index]?.end && errors?.workTimes?.[index]?.end?.message}
           />
           <Button variant="contained" color="secondary" disabled={isDisabled} onClick={setOpen}>
-            削除
+            DELETE
           </Button>
         </Box>
-        <ConfirmDialog isOpen={isOpen} setClose={setClose} body="削除してもよろしいですか？" callback={handleRemove} />
+        <ConfirmDialog isOpen={isOpen} setClose={setClose} body="Can I delete it?" callback={handleRemove} />
       </>
     );
   },
