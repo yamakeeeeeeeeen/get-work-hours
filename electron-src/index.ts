@@ -31,7 +31,7 @@ app.on("ready", async () => {
   if (isDev) {
     import("electron-devtools-installer").then((module) => {
       module
-        .default([module.REACT_DEVELOPER_TOOLS, module.REDUX_DEVTOOLS])
+        .default(module.REACT_DEVELOPER_TOOLS)
         .then((name) => console.log(`Added Extension: ${name}`))
         .catch((err) => console.log("An error occurred: ", err));
     });
