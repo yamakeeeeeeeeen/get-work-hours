@@ -31,7 +31,7 @@ export const Component: FC<ComponentProps> = memo(
 
     return (
       <>
-        <Box>
+        <Box maxWidth={500} mx="auto">
           <Typography className={classes.infoText}>Please enter the hours you worked👨‍💻</Typography>
           {props.fields.map((item, index) => {
             const value = {
@@ -40,15 +40,17 @@ export const Component: FC<ComponentProps> = memo(
             };
             return <TimePickerSet key={item.id} index={index} value={value} {...props} />;
           })}
-          <Button variant="contained" color="primary" onClick={handleAppend}>
-            APPEND
-          </Button>
-          <Button variant="contained" color="primary" onClick={handleSubmit(handleConfirm)}>
-            CONFIRM
-          </Button>
-          <Button variant="contained" color="secondary" disabled={!isDisabled} onClick={handleReset}>
-            RESET
-          </Button>
+          <Box display="flex" justifyContent="space-between">
+            <Button variant="contained" color="primary" onClick={handleAppend}>
+              APPEND
+            </Button>
+            <Button variant="contained" color="primary" onClick={handleSubmit(handleConfirm)}>
+              CONFIRM
+            </Button>
+            <Button variant="contained" color="secondary" disabled={!isDisabled} onClick={handleReset}>
+              RESET
+            </Button>
+          </Box>
         </Box>
         <ResultDialog isOpen={isOpen} setClose={setClose} result={result} />
       </>

@@ -24,35 +24,41 @@ export const Component: FC<ComponentProps> = memo(
 
     return (
       <>
-        <Box display="flex" alignItems="center" mb={3}>
-          <Typography>{ORDINAL_NUMBERS[index + 1]}</Typography>
-          <TimePicker
-            name={`workTimes[${index}].start`}
-            label="start"
-            defaultValue={value.start}
-            inputRef={register({
-              validate: {
-                ...formatHHMM(),
-                ...biggerThanThePrevious('start', index, getValues),
-              },
-            })}
-            error={!!errors?.workTimes?.[index]?.start}
-            helperText={errors?.workTimes?.[index]?.start && errors?.workTimes?.[index]?.start?.message}
-          />
-          <Typography>~</Typography>
-          <TimePicker
-            name={`workTimes[${index}].end`}
-            label="end"
-            defaultValue={value.end}
-            inputRef={register({
-              validate: {
-                ...formatHHMM(),
-                ...biggerThanThePrevious('end', index, getValues),
-              },
-            })}
-            error={!!errors?.workTimes?.[index]?.end}
-            helperText={errors?.workTimes?.[index]?.end && errors?.workTimes?.[index]?.end?.message}
-          />
+        <Box display="flex" alignItems="center" justifyContent="space-between" mb={3}>
+          <Box width={75}>
+            <Typography>{ORDINAL_NUMBERS[index + 1]}</Typography>
+          </Box>
+          <Box display="flex" alignItems="center">
+            <TimePicker
+              name={`workTimes[${index}].start`}
+              label="start"
+              defaultValue={value.start}
+              inputRef={register({
+                validate: {
+                  ...formatHHMM(),
+                  ...biggerThanThePrevious('start', index, getValues),
+                },
+              })}
+              error={!!errors?.workTimes?.[index]?.start}
+              helperText={errors?.workTimes?.[index]?.start && errors?.workTimes?.[index]?.start?.message}
+            />
+            <Box mx={2}>
+              <Typography>~</Typography>
+            </Box>
+            <TimePicker
+              name={`workTimes[${index}].end`}
+              label="end"
+              defaultValue={value.end}
+              inputRef={register({
+                validate: {
+                  ...formatHHMM(),
+                  ...biggerThanThePrevious('end', index, getValues),
+                },
+              })}
+              error={!!errors?.workTimes?.[index]?.end}
+              helperText={errors?.workTimes?.[index]?.end && errors?.workTimes?.[index]?.end?.message}
+            />
+          </Box>
           <Button variant="contained" color="secondary" disabled={isDisabled} onClick={setOpen}>
             DELETE
           </Button>

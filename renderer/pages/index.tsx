@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { FormProvider, useFieldArray, useForm, UseFieldArrayMethods } from 'react-hook-form';
-import { Typography } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 import { Template } from '~/components/Template';
 import { InputForm } from '~/containers/InputForm';
 
@@ -13,7 +13,9 @@ export type ComponentProps = {
 const Component: FC<ComponentProps> = ({ ...props }) => {
   return (
     <Template title="Get Work Time">
-      <Typography variant="h4">Get Uptime and Break Time🔥</Typography>
+      <Box maxWidth={500} mx="auto" mb={3}>
+        <Typography variant="h4">Get Uptime and Break Time🔥</Typography>
+      </Box>
       <InputForm {...props} />
     </Template>
   );
