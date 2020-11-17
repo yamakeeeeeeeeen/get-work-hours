@@ -14,7 +14,8 @@ const INITIAL_TIME: Time = {
 };
 
 export const InputForm: FC<Props> = memo(({ append, ...props }) => {
-  const { handleSubmit, reset } = useFormContext();
+  const { formState, handleSubmit, reset } = useFormContext();
+  const { isDirty } = formState;
   const [isOpen, setOpen, setClose] = useBooleanState(false);
   const [uptime, setUptime] = useState<Time>(INITIAL_TIME);
   const [breakTime, setBreakTime] = useState<Time>(INITIAL_TIME);
@@ -58,6 +59,7 @@ export const InputForm: FC<Props> = memo(({ append, ...props }) => {
     <Component
       {...props}
       result={result}
+      isDisabled={isDirty}
       isOpen={isOpen}
       setClose={setClose}
       handleAppend={handleAppend}

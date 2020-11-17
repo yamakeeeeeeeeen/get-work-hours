@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export type ComponentProps = Omit<Props, 'append'> & {
   result: string;
+  isDisabled: boolean;
   isOpen: boolean;
   setClose: () => void;
   handleAppend: () => void;
@@ -25,7 +26,7 @@ export type ComponentProps = Omit<Props, 'append'> & {
 };
 
 export const Component: FC<ComponentProps> = memo(
-  ({ handleSubmit, result, isOpen, setClose, handleAppend, handleConfirm, handleReset, ...props }) => {
+  ({ result, isDisabled, isOpen, setClose, handleAppend, handleConfirm, handleReset, handleSubmit, ...props }) => {
     const classes = useStyles();
 
     return (
@@ -45,8 +46,8 @@ export const Component: FC<ComponentProps> = memo(
           <Button variant="contained" color="primary" onClick={handleSubmit(handleConfirm)}>
             確認
           </Button>
-          <Button variant="contained" color="secondary" onClick={handleReset}>
-            リセット
+          <Button variant="contained" color="secondary" disabled={!isDisabled} onClick={handleReset}>
+            RESET
           </Button>
         </Box>
         <ResultDialog isOpen={isOpen} setClose={setClose} result={result} />
