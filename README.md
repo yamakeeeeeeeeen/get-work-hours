@@ -30,3 +30,7 @@ Enter the hours you've worked.
 You can get a quick breakdown of these complex work hours.
 
 ![work-info](https://user-images.githubusercontent.com/53547520/99178691-11415900-2759-11eb-97d7-71e8e408b55e.png)
+
+![image](https://user-images.githubusercontent.com/53547520/99466479-d40ae000-297f-11eb-9a45-2620a640ec21.png)
+
+![image](https://user-images.githubusercontent.com/53547520/99466530-e9800a00-297f-11eb-9bc2-66b1661e1d80.png)
