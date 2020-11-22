@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmDialog 1`] = `
+<WithStyles(ForwardRef(Dialog))
+  onClose={[Function]}
+  open={true}
+>
+  <WithStyles(ForwardRef(DialogContent))>
+    <WithStyles(ForwardRef(DialogContentText))>
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      />
+    </WithStyles(ForwardRef(DialogContentText))>
+  </WithStyles(ForwardRef(DialogContent))>
+  <WithStyles(ForwardRef(DialogActions))>
+    <WithStyles(ForwardRef(Button))
+      color="secondary"
+      onClick={[Function]}
+      variant="contained"
+    >
+      No
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))
+      color="primary"
+      onClick={[Function]}
+      variant="contained"
+    >
+      Yes
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(DialogActions))>
+</WithStyles(ForwardRef(Dialog))>
+`;
