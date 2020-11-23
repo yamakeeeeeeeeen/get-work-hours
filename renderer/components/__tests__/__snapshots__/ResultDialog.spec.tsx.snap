@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResultDialog /> 1`] = `
+<WithStyles(ForwardRef(Dialog))
+  onClose={[MockFunction]}
+  open={true}
+>
+  <WithStyles(ForwardRef(DialogTitle))>
+    <WithStyles(ForwardRef(Typography))
+      variant="h3"
+    >
+      Result
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(DialogTitle))>
+  <WithStyles(ForwardRef(DialogContent))>
+    <WithStyles(ForwardRef(DialogContentText))>
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        08:00
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        01:00
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(DialogContentText))>
+  </WithStyles(ForwardRef(DialogContent))>
+  <WithStyles(ForwardRef(DialogActions))>
+    <WithStyles(ForwardRef(Button))
+      color="secondary"
+      onClick={[MockFunction]}
+      variant="contained"
+    >
+      CLOSE
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(DialogActions))>
+</WithStyles(ForwardRef(Dialog))>
+`;

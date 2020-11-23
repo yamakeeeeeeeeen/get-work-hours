@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@material-ui/core';
 
-type Props = {
+export type Props = {
   isOpen: boolean;
   setClose: () => void;
   result: { breakTime: string; uptime: string };
