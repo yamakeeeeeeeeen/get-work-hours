@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TimePicker /> snapshot 1`] = `
+<WithStyles(ForwardRef(TextField))
+  InputLabelProps={
+    Object {
+      "shrink": true,
+    }
+  }
+  className="makeStyles-textField-1"
+  color="primary"
+  type="time"
+  variant="outlined"
+/>
+`;
