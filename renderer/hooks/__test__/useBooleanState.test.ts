@@ -3,19 +3,21 @@ import { useBooleanState } from '~/hooks';
 
 it('useBooleanState', () => {
   const { result } = renderHook(() => useBooleanState(false));
+  const setTrue = result.current[1];
+  const setFalse = result.current[2];
 
   // initial state
   expect(result.current[0]).toBe(false);
 
   // setTrue
   act(() => {
-    result.current[1]();
+    setTrue();
   });
   expect(result.current[0]).toBe(true);
 
   // setFalse
   act(() => {
-    result.current[2]();
+    setFalse();
   });
   expect(result.current[0]).toBe(false);
 });
