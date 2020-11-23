@@ -2,7 +2,7 @@ import { FC, memo, useCallback, useMemo } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { ComponentProps } from '~/components/InputForm';
 import { Component } from '~/components/TimePickerSet';
-import useBooleanState from '~/hooks/useBooleanState';
+import { useBooleanState } from '~/hooks';
 
 export type Props = Pick<ComponentProps, 'fields' | 'remove'> & {
   index: number;
