@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConfirmDialog 1`] = `
+exports[`<ConfirmDialog /> 1`] = `
 <WithStyles(ForwardRef(Dialog))
-  onClose={[Function]}
+  onClose={[MockFunction]}
   open={true}
 >
   <WithStyles(ForwardRef(DialogContent))>
@@ -15,14 +15,14 @@ exports[`ConfirmDialog 1`] = `
   <WithStyles(ForwardRef(DialogActions))>
     <WithStyles(ForwardRef(Button))
       color="secondary"
-      onClick={[Function]}
+      onClick={[MockFunction]}
       variant="contained"
     >
       No
     </WithStyles(ForwardRef(Button))>
     <WithStyles(ForwardRef(Button))
       color="primary"
-      onClick={[Function]}
+      onClick={[MockFunction]}
       variant="contained"
     >
       Yes

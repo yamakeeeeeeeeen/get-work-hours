@@ -1,10 +1,13 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import { ConfirmDialog } from '~/components/ConfirmDialog';
+import { snapshot } from '~/test/utils';
 
-test('ConfirmDialog', () => {
-  const propsFunc = () => console.log();
+test('<ConfirmDialog />', () => {
+  const props = {
+    isOpen: true,
+    callback: jest.fn(),
+    body: '',
+    setClose: jest.fn(),
+  };
 
-  const component = shallow(<ConfirmDialog isOpen callback={propsFunc} body="" setClose={propsFunc} />);
-  expect(component).toMatchSnapshot();
+  snapshot(<ConfirmDialog {...props} />);
 });
