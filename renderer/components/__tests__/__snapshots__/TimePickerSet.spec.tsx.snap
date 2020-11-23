@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TimePickerSet /> 1`] = `
+<Fragment>
+  <Styled(MuiBox)
+    alignItems="center"
+    display="flex"
+    justifyContent="space-between"
+    mb={3}
+  >
+    <Styled(MuiBox)
+      width={75}
+    >
+      <WithStyles(ForwardRef(Typography))>
+        first
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <Styled(MuiBox)
+      alignItems="center"
+      display="flex"
+    >
+      <TimePicker
+        defaultValue="09:00"
+        error={false}
+        label="start"
+        name="workTimes[0].start"
+      />
+      <Styled(MuiBox)
+        mx={2}
+      >
+        <WithStyles(ForwardRef(Typography))>
+          ~
+        </WithStyles(ForwardRef(Typography))>
+      </Styled(MuiBox)>
+      <TimePicker
+        defaultValue="18:00"
+        error={false}
+        label="end"
+        name="workTimes[0].end"
+      />
+    </Styled(MuiBox)>
+    <WithStyles(ForwardRef(Button))
+      color="secondary"
+      disabled={true}
+      onClick={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              Object {
+                "validate": Object {
+                  "biggerThanThePrevious": [Function],
+                  "formatHHMM": [Function],
+                },
+              },
+            ],
+            Array [
+              Object {
+                "validate": Object {
+                  "biggerThanThePrevious": [Function],
+                  "formatHHMM": [Function],
+                },
+              },
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      variant="contained"
+    >
+      DELETE
+    </WithStyles(ForwardRef(Button))>
+  </Styled(MuiBox)>
+  <ConfirmDialog
+    body="Can I delete it?"
+    callback={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "validate": Object {
+                "biggerThanThePrevious": [Function],
+                "formatHHMM": [Function],
+              },
+            },
+          ],
+          Array [
+            Object {
+              "validate": Object {
+                "biggerThanThePrevious": [Function],
+                "formatHHMM": [Function],
+              },
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    isOpen={true}
+    setClose={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "validate": Object {
+                "biggerThanThePrevious": [Function],
+                "formatHHMM": [Function],
+              },
+            },
+          ],
+          Array [
+            Object {
+              "validate": Object {
+                "biggerThanThePrevious": [Function],
+                "formatHHMM": [Function],
+              },
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  />
+</Fragment>
+`;

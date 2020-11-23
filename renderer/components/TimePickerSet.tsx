@@ -7,7 +7,7 @@ import { ConfirmDialog } from '~/components/ConfirmDialog';
 import { getValidation } from '~/utils/getValidation';
 import { ORDINAL_NUMBERS } from '~/constants';
 
-type ComponentProps = Omit<Props, 'fields' | 'remove'> & {
+export type ComponentProps = Omit<Props, 'fields' | 'remove'> & {
   isDisabled: boolean;
   isOpen: boolean;
   setOpen: () => void;
