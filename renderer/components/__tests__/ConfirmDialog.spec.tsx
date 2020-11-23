@@ -1,12 +1,13 @@
-import { ConfirmDialog } from '~/components/ConfirmDialog';
+import { ConfirmDialog, Props } from '~/components/ConfirmDialog';
 import { snapshot } from '~/test/utils';
 
 test('<ConfirmDialog />', () => {
-  const props = {
+  const mockFn = jest.fn();
+  const props: Props = {
     isOpen: true,
-    callback: jest.fn(),
     body: '',
-    setClose: jest.fn(),
+    callback: mockFn,
+    setClose: mockFn,
   };
 
   snapshot(<ConfirmDialog {...props} />);

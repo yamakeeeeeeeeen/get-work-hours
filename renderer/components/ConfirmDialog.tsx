@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, Typography } from '@material-ui/core';
 
-type Props = {
+export type Props = {
   isOpen: boolean;
   setClose: () => void;
   body: string;
