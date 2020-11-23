@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<InputForm /> 1`] = `
+exports[`<InputForm /> snapshot 1`] = `
 <Fragment>
   <Styled(MuiBox)
     maxWidth={500}

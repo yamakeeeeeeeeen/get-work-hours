@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ConfirmDialog /> 1`] = `
+exports[`<ConfirmDialog /> snapshot 1`] = `
 <WithStyles(ForwardRef(Dialog))
   onClose={[MockFunction]}
   open={true}
