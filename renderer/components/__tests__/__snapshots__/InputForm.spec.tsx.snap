@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InputForm /> 1`] = `
+<Fragment>
+  <Styled(MuiBox)
+    maxWidth={500}
+    mx="auto"
+  >
+    <WithStyles(ForwardRef(Typography))
+      className="makeStyles-infoText-1"
+    >
+      Please enter the hours you worked👨‍💻
+    </WithStyles(ForwardRef(Typography))>
+    <Styled(MuiBox)
+      display="flex"
+      justifyContent="space-between"
+    >
+      <WithStyles(ForwardRef(Button))
+        color="primary"
+        onClick={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                [MockFunction] {
+                  "calls": [Circular],
+                  "results": Array [
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                  ],
+                },
+              ],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
+        variant="contained"
+      >
+        APPEND
+      </WithStyles(ForwardRef(Button))>
+      <WithStyles(ForwardRef(Button))
+        color="primary"
+        variant="contained"
+      >
+        CONFIRM
+      </WithStyles(ForwardRef(Button))>
+      <WithStyles(ForwardRef(Button))
+        color="secondary"
+        disabled={false}
+        onClick={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                [MockFunction] {
+                  "calls": [Circular],
+                  "results": Array [
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                  ],
+                },
+              ],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
+        variant="contained"
+      >
+        RESET
+      </WithStyles(ForwardRef(Button))>
+    </Styled(MuiBox)>
+  </Styled(MuiBox)>
+  <ResultDialog
+    isOpen={true}
+    result={
+      Object {
+        "breakTime": "01:00",
+        "uptime": "08:00",
+      }
+    }
+    setClose={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            [MockFunction] {
+              "calls": [Circular],
+              "results": Array [
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+              ],
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  />
+</Fragment>
+`;
