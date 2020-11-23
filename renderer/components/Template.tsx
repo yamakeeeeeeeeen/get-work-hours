@@ -1,7 +1,7 @@
 import { FC, memo, ReactNode } from 'react';
 import Head from 'next/head';
 
-type Props = {
+export type Props = {
   children: ReactNode;
   title?: string;
 };

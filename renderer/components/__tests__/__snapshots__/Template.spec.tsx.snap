@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Template /> 1`] = `
+<div>
+  <Head>
+    <title>
+      title: Template test
+    </title>
+    <meta
+      content="initial-scale=1.0, width=device-width"
+      name="viewport"
+    />
+  </Head>
+  <p>
+    children: Template test
+  </p>
+</div>
+`;
