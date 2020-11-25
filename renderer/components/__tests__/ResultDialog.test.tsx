@@ -1,4 +1,4 @@
-import { ResultDialog, Props } from '~/components/ResultDialog';
+import { Props, ResultDialog } from '~/components/ResultDialog';
 import { snapshot } from '~/test/utils';
 
 const mockFn = jest.fn();

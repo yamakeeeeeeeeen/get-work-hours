@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { FormProvider, useFieldArray, useForm, UseFieldArrayMethods } from 'react-hook-form';
+import { FormProvider, useFieldArray, UseFieldArrayMethods, useForm } from 'react-hook-form';
 import { Box, Typography } from '@material-ui/core';
 import { Template } from '~/components/Template';
 import { InputForm } from '~/containers/InputForm';

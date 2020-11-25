@@ -1,4 +1,4 @@
-import { Template, Props } from '~/components/Template';
+import { Props, Template } from '~/components/Template';
 import { snapshot } from '~/test/utils';
 
 const props: Pick<Props, 'title'> = {
