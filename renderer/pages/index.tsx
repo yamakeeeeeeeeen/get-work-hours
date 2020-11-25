@@ -5,9 +5,9 @@ import { Template } from '~/components/Template';
 import { InputForm } from '~/containers/InputForm';
 
 export type ComponentProps = {
-  fields: UseFieldArrayMethods['fields'];
-  append: UseFieldArrayMethods['append'];
-  remove: UseFieldArrayMethods['remove'];
+  fields: UseFieldArrayMethods<WorkTime>['fields'];
+  append: UseFieldArrayMethods<WorkTime>['append'];
+  remove: UseFieldArrayMethods<WorkTime>['remove'];
 };
 
 const Component: FC<ComponentProps> = ({ ...props }) => {
@@ -21,11 +21,12 @@ const Component: FC<ComponentProps> = ({ ...props }) => {
   );
 };
 
+type WorkTime = {
+  start: string;
+  end: string;
+};
 export type Inputs = {
-  workTimes: {
-    start: string;
-    end: string;
-  }[];
+  workTimes: WorkTime[];
 };
 
 const IndexPage: FC = () => {
@@ -36,7 +37,7 @@ const IndexPage: FC = () => {
     mode: 'all',
   });
   const { control } = methods;
-  const { fields, append, remove } = useFieldArray({
+  const { fields, append, remove } = useFieldArray<WorkTime>({
     control,
     name: 'workTimes',
   });

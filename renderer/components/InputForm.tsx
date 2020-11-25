@@ -34,11 +34,14 @@ export const Component: FC<ComponentProps> = memo(
         <Box maxWidth={500} mx="auto">
           <Typography className={classes.infoText}>Please enter the hours you worked👨‍💻</Typography>
           {props.fields.map((item, index) => {
-            const value = {
-              start: item.start,
-              end: item.end,
-            };
-            return <TimePickerSet key={item.id} index={index} value={value} {...props} />;
+            if (item.start && item.end) {
+              const value = {
+                start: item.start,
+                end: item.end,
+              };
+              return <TimePickerSet key={item.id} index={index} value={value} {...props} />;
+            }
+            return null;
           })}
           <Box display="flex" justifyContent="space-between">
             <Button variant="contained" color="primary" onClick={handleAppend}>
