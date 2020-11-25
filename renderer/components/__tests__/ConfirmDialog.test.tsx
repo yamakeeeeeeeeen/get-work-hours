@@ -1,12 +1,18 @@
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import { ConfirmDialog } from '~/components/ConfirmDialog';
+import { ConfirmDialog, Props } from '~/components/ConfirmDialog';
 
 describe('<ConfirmDialog />', () => {
   const body = 'test body';
   const callback = jest.fn();
   const setClose = jest.fn();
-  const wrapper = shallow(<ConfirmDialog isOpen={true} body={body} callback={callback} setClose={setClose} />);
+  const props: Props = {
+    isOpen: true,
+    body,
+    callback,
+    setClose,
+  };
+  const wrapper = shallow(<ConfirmDialog {...props} />);
 
   it('snapshot', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
