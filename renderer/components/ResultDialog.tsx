@@ -23,12 +23,16 @@ export const ResultDialog: FC<Props> = memo(({ isOpen, setClose, result }) => {
       </DialogTitle>
       <DialogContent>
         <DialogContentText>
-          <Typography variant="h4">{result.uptime}</Typography>
-          <Typography variant="h4">{result.breakTime}</Typography>
+          <Typography className="uptime" variant="h4">
+            {result.uptime}
+          </Typography>
+          <Typography className="break-time" variant="h4">
+            {result.breakTime}
+          </Typography>
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button variant="contained" color="secondary" onClick={setClose}>
+        <Button className="close-btn" variant="contained" color="secondary" onClick={setClose}>
           CLOSE
         </Button>
       </DialogActions>

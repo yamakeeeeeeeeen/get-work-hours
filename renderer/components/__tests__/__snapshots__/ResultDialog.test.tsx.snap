@@ -15,11 +15,13 @@ exports[`<ResultDialog /> snapshot 1`] = `
   <WithStyles(ForwardRef(DialogContent))>
     <WithStyles(ForwardRef(DialogContentText))>
       <WithStyles(ForwardRef(Typography))
+        className="uptime"
         variant="h4"
       >
         08:00
       </WithStyles(ForwardRef(Typography))>
       <WithStyles(ForwardRef(Typography))
+        className="break-time"
         variant="h4"
       >
         01:00
@@ -28,6 +30,7 @@ exports[`<ResultDialog /> snapshot 1`] = `
   </WithStyles(ForwardRef(DialogContent))>
   <WithStyles(ForwardRef(DialogActions))>
     <WithStyles(ForwardRef(Button))
+      className="close-btn"
       color="secondary"
       onClick={[MockFunction]}
       variant="contained"
