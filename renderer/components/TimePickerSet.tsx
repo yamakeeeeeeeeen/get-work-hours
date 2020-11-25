@@ -26,7 +26,7 @@ export const Component: FC<ComponentProps> = memo(
       <>
         <Box display="flex" alignItems="center" justifyContent="space-between" mb={3}>
           <Box width={75}>
-            <Typography>{ORDINAL_NUMBERS[index + 1]}</Typography>
+            <Typography className="times">{ORDINAL_NUMBERS[index + 1]}</Typography>
           </Box>
           <Box display="flex" alignItems="center">
             <TimePicker
@@ -59,7 +59,7 @@ export const Component: FC<ComponentProps> = memo(
               helperText={errors?.workTimes?.[index]?.end && errors?.workTimes?.[index]?.end?.message}
             />
           </Box>
-          <Button variant="contained" color="secondary" disabled={isDisabled} onClick={setOpen}>
+          <Button className="delete-btn" variant="contained" color="secondary" disabled={isDisabled} onClick={setOpen}>
             DELETE
           </Button>
         </Box>

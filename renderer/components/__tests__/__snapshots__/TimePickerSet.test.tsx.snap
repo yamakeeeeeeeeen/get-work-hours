@@ -11,7 +11,9 @@ exports[`<TimePickerSet /> snapshot 1`] = `
     <Styled(MuiBox)
       width={75}
     >
-      <WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        className="times"
+      >
         first
       </WithStyles(ForwardRef(Typography))>
     </Styled(MuiBox)>
@@ -40,40 +42,10 @@ exports[`<TimePickerSet /> snapshot 1`] = `
       />
     </Styled(MuiBox)>
     <WithStyles(ForwardRef(Button))
+      className="delete-btn"
       color="secondary"
       disabled={true}
-      onClick={
-        [MockFunction] {
-          "calls": Array [
-            Array [
-              Object {
-                "validate": Object {
-                  "biggerThanThePrevious": [Function],
-                  "formatHHMM": [Function],
-                },
-              },
-            ],
-            Array [
-              Object {
-                "validate": Object {
-                  "biggerThanThePrevious": [Function],
-                  "formatHHMM": [Function],
-                },
-              },
-            ],
-          ],
-          "results": Array [
-            Object {
-              "type": "return",
-              "value": undefined,
-            },
-            Object {
-              "type": "return",
-              "value": undefined,
-            },
-          ],
-        }
-      }
+      onClick={[MockFunction]}
       variant="contained"
     >
       DELETE
@@ -81,71 +53,9 @@ exports[`<TimePickerSet /> snapshot 1`] = `
   </Styled(MuiBox)>
   <ConfirmDialog
     body="Can I delete it?"
-    callback={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            Object {
-              "validate": Object {
-                "biggerThanThePrevious": [Function],
-                "formatHHMM": [Function],
-              },
-            },
-          ],
-          Array [
-            Object {
-              "validate": Object {
-                "biggerThanThePrevious": [Function],
-                "formatHHMM": [Function],
-              },
-            },
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
+    callback={[MockFunction]}
     isOpen={true}
-    setClose={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            Object {
-              "validate": Object {
-                "biggerThanThePrevious": [Function],
-                "formatHHMM": [Function],
-              },
-            },
-          ],
-          Array [
-            Object {
-              "validate": Object {
-                "biggerThanThePrevious": [Function],
-                "formatHHMM": [Function],
-              },
-            },
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
+    setClose={[MockFunction]}
   />
 </Fragment>
 `;
