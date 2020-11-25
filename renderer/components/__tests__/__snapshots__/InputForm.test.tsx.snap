@@ -11,71 +11,50 @@ exports[`<InputForm /> snapshot 1`] = `
     >
       Please enter the hours you worked👨‍💻
     </WithStyles(ForwardRef(Typography))>
+    <TimePickerSet
+      fields={
+        Array [
+          Object {
+            "end": "18:00",
+            "id": "test-id",
+            "start": "09:00",
+          },
+        ]
+      }
+      index={0}
+      key="test-id"
+      remove={[MockFunction]}
+      value={
+        Object {
+          "end": "18:00",
+          "start": "09:00",
+        }
+      }
+    />
     <Styled(MuiBox)
       display="flex"
       justifyContent="space-between"
     >
       <WithStyles(ForwardRef(Button))
+        className="append-btn"
         color="primary"
-        onClick={
-          [MockFunction] {
-            "calls": Array [
-              Array [
-                [MockFunction] {
-                  "calls": [Circular],
-                  "results": Array [
-                    Object {
-                      "type": "return",
-                      "value": undefined,
-                    },
-                  ],
-                },
-              ],
-            ],
-            "results": Array [
-              Object {
-                "type": "return",
-                "value": undefined,
-              },
-            ],
-          }
-        }
+        onClick={[MockFunction]}
         variant="contained"
       >
         APPEND
       </WithStyles(ForwardRef(Button))>
       <WithStyles(ForwardRef(Button))
+        className="confirm-btn"
         color="primary"
         variant="contained"
       >
         CONFIRM
       </WithStyles(ForwardRef(Button))>
       <WithStyles(ForwardRef(Button))
+        className="reset-btn"
         color="secondary"
         disabled={false}
-        onClick={
-          [MockFunction] {
-            "calls": Array [
-              Array [
-                [MockFunction] {
-                  "calls": [Circular],
-                  "results": Array [
-                    Object {
-                      "type": "return",
-                      "value": undefined,
-                    },
-                  ],
-                },
-              ],
-            ],
-            "results": Array [
-              Object {
-                "type": "return",
-                "value": undefined,
-              },
-            ],
-          }
-        }
+        onClick={[MockFunction]}
         variant="contained"
       >
         RESET
@@ -90,29 +69,7 @@ exports[`<InputForm /> snapshot 1`] = `
         "uptime": "08:00",
       }
     }
-    setClose={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            [MockFunction] {
-              "calls": [Circular],
-              "results": Array [
-                Object {
-                  "type": "return",
-                  "value": undefined,
-                },
-              ],
-            },
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
+    setClose={[MockFunction]}
   />
 </Fragment>
 `;

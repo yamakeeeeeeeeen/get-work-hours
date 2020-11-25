@@ -44,13 +44,19 @@ export const Component: FC<ComponentProps> = memo(
             return null;
           })}
           <Box display="flex" justifyContent="space-between">
-            <Button variant="contained" color="primary" onClick={handleAppend}>
+            <Button className="append-btn" variant="contained" color="primary" onClick={handleAppend}>
               APPEND
             </Button>
-            <Button variant="contained" color="primary" onClick={handleSubmit(handleConfirm)}>
+            <Button className="confirm-btn" variant="contained" color="primary" onClick={handleSubmit(handleConfirm)}>
               CONFIRM
             </Button>
-            <Button variant="contained" color="secondary" disabled={!isDisabled} onClick={handleReset}>
+            <Button
+              className="reset-btn"
+              variant="contained"
+              color="secondary"
+              disabled={!isDisabled}
+              onClick={handleReset}
+            >
               RESET
             </Button>
           </Box>
