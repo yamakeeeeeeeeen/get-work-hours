@@ -14,7 +14,8 @@
     "pack-app": "yarn build && electron-builder --dir",
     "type-check": "tsc --project renderer/tsconfig.json",
     "eslint": "eslint ./renderer --ext .tsx --ext .ts",
-    "test": "jest"
+    "test": "jest",
+    "test:c": "jest --coverage"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
