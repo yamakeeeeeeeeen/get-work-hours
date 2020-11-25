@@ -8,12 +8,16 @@ exports[`<ConfirmDialog /> snapshot 1`] = `
   <WithStyles(ForwardRef(DialogContent))>
     <WithStyles(ForwardRef(DialogContentText))>
       <WithStyles(ForwardRef(Typography))
+        className="body-text"
         variant="h4"
-      />
+      >
+        test body
+      </WithStyles(ForwardRef(Typography))>
     </WithStyles(ForwardRef(DialogContentText))>
   </WithStyles(ForwardRef(DialogContent))>
   <WithStyles(ForwardRef(DialogActions))>
     <WithStyles(ForwardRef(Button))
+      className="cancel-btn"
       color="secondary"
       onClick={[MockFunction]}
       variant="contained"
@@ -21,6 +25,7 @@ exports[`<ConfirmDialog /> snapshot 1`] = `
       No
     </WithStyles(ForwardRef(Button))>
     <WithStyles(ForwardRef(Button))
+      className="apply-btn"
       color="primary"
       onClick={[MockFunction]}
       variant="contained"

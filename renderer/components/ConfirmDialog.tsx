@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, Typography } from '@material-ui/core';
 
-export type Props = {
+type Props = {
   isOpen: boolean;
   setClose: () => void;
   body: string;
@@ -13,14 +13,16 @@ export const ConfirmDialog: FC<Props> = memo(({ isOpen, setClose, body, callback
     <Dialog open={isOpen} onClose={setClose}>
       <DialogContent>
         <DialogContentText>
-          <Typography variant="h4">{body}</Typography>
+          <Typography className="body-text" variant="h4">
+            {body}
+          </Typography>
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button variant="contained" color="secondary" onClick={setClose}>
+        <Button className="cancel-btn" variant="contained" color="secondary" onClick={setClose}>
           No
         </Button>
-        <Button variant="contained" color="primary" onClick={callback}>
+        <Button className="apply-btn" variant="contained" color="primary" onClick={callback}>
           Yes
         </Button>
       </DialogActions>
